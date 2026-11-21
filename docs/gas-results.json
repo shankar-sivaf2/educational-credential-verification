@@ -1,0 +1,27 @@
+{
+  "measuredAt": "2026-11-21T10:44:39.261Z",
+  "environment": {
+    "network": "hardhat in-process",
+    "hardhat": "2.29.1",
+    "solidity": "0.8.24",
+    "optimizerRuns": 200,
+    "node": "v22.20.0",
+    "platform": "win32 x64"
+  },
+  "deployment": {
+    "gas": 553986
+  },
+  "registerCertificate": {
+    "samples": 20,
+    "min": 71586,
+    "max": 71610,
+    "mean": 71602
+  },
+  "revokeCertificate": {
+    "samples": 20,
+    "min": 35885,
+    "max": 35909,
+    "mean": 35904
+  },
+  "onChainBytesPerCertificate": 64
+}

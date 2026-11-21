@@ -1,0 +1,82 @@
+{
+  "measured_at": "2026-11-21T10:45:29+00:00",
+  "environment": {
+    "python": "3.13.0",
+    "os": "Windows-11-10.0.26300-SP0",
+    "network": "local Hardhat node (instant mining)",
+    "chain_id": 31337
+  },
+  "parameters": {
+    "certificates": 20,
+    "verify_rounds": 5
+  },
+  "issue_latency": {
+    "n": 20,
+    "mean_ms": 125.14,
+    "median_ms": 110.42,
+    "p95_ms": 167.21,
+    "min_ms": 99.73,
+    "max_ms": 276.3
+  },
+  "verify_latency_api": {
+    "n": 100,
+    "mean_ms": 57.66,
+    "median_ms": 53.59,
+    "p95_ms": 79.86,
+    "min_ms": 39.68,
+    "max_ms": 229.2
+  },
+  "verify_genuine": {
+    "valid": 100,
+    "total": 100
+  },
+  "tamper_detection": {
+    "rejected": 140,
+    "total": 140,
+    "statuses": {
+      "COMMITMENT_MISMATCH": 120,
+      "UNKNOWN": 20
+    }
+  },
+  "baseline_database_check": {
+    "latency": {
+      "n": 100,
+      "mean_ms": 0.04,
+      "median_ms": 0.04,
+      "p95_ms": 0.04,
+      "min_ms": 0.02,
+      "max_ms": 0.3
+    },
+    "forged_rejected": 140,
+    "forged_total": 140,
+    "insider_edit_of_data_and_hash_accepted": true,
+    "blockchain_result_for_same_forgery": "COMMITMENT_MISMATCH"
+  },
+  "gas": {
+    "measuredAt": "2026-11-21T10:44:39.261Z",
+    "environment": {
+      "network": "hardhat in-process",
+      "hardhat": "2.29.1",
+      "solidity": "0.8.24",
+      "optimizerRuns": 200,
+      "node": "v22.20.0",
+      "platform": "win32 x64"
+    },
+    "deployment": {
+      "gas": 553986
+    },
+    "registerCertificate": {
+      "samples": 20,
+      "min": 71586,
+      "max": 71610,
+      "mean": 71602
+    },
+    "revokeCertificate": {
+      "samples": 20,
+      "min": 35885,
+      "max": 35909,
+      "mean": 35904
+    },
+    "onChainBytesPerCertificate": 64
+  }
+}

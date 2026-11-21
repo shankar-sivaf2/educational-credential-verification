@@ -1,0 +1,45 @@
+# Python
+backend/venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Secrets
+.env
+*.env
+!.env.example
+
+# Node
+node_modules/
+frontend/dist/
+
+# Hardhat
+blockchain/artifacts/
+blockchain/cache/
+
+# Runtime data
+storage/database/*.db
+storage/certificates/*
+storage/uploads/*
+!storage/**/.gitkeep
+
+# Deployment address written by deploy.js
+backend/app/blockchain/abi/deployment.json
+
+# Python virtual environments
+.venv/
+.venv*/
+venv/
+
+# Private keys and credentials
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Environment files
+.env
+.env.*
+!.env.example
+# Potentially sensitive certificate data
+backend/cert.json
