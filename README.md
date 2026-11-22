@@ -57,7 +57,7 @@ Set-ExecutionPolicy -Scope Process Bypass
 Run this once during initial setup.
 
 The setup script:
-- Creates the Python virtual environment.
+- Creates the project-root `.venv313` Python virtual environment if it does not exist.
 - Installs backend dependencies.
 - Installs blockchain dependencies and compiles smart contracts.
 - Installs frontend dependencies.

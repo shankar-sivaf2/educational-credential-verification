@@ -1,14 +1,14 @@
 # Benchmark results
 
-Measured 2026-11-21T10:45:29+00:00 on Windows-11-10.0.26300-SP0, Python 3.13.0, local Hardhat node (instant mining) (chain 31337).
+Measured 2026-11-22T12:03:21+00:00 on Windows-11-10.0.26300-SP0, Python 3.13.0, local Hardhat node (instant mining) (chain 31337).
 
 ## Latency (milliseconds)
 
 | Operation | n | mean | median | p95 | min | max |
 |---|---|---|---|---|---|---|
-| Issue certificate (API + blockchain transaction) | 20 | 125.14 | 110.42 | 167.21 | 99.73 | 276.3 |
-| Verify certificate (API + blockchain read) | 100 | 57.66 | 53.59 | 79.86 | 39.68 | 229.2 |
-| Baseline: database hash check (in-process, no network) | 100 | 0.04 | 0.04 | 0.04 | 0.02 | 0.3 |
+| Issue certificate (API + blockchain transaction) | 20 | 129.88 | 118.99 | 156.63 | 99.7 | 300.09 |
+| Verify certificate (API + blockchain read) | 100 | 54.74 | 49.61 | 79.6 | 39.13 | 106.66 |
+| Baseline: database hash check (in-process, no network) | 100 | 0.04 | 0.04 | 0.05 | 0.03 | 0.15 |
 
 The baseline runs inside one process with no HTTP and no blockchain, so it is a floor, not a
 like-for-like rival. The comparison that matters is security, below.
@@ -32,7 +32,7 @@ property the baseline lacks.
 
 ```json
 {
-  "measuredAt": "2026-11-21T10:44:39.261Z",
+  "measuredAt": "2026-11-22T11:39:21.771Z",
   "environment": {
     "network": "hardhat in-process",
     "hardhat": "2.29.1",

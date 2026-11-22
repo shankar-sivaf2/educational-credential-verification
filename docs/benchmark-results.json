@@ -1,5 +1,5 @@
 {
-  "measured_at": "2026-11-21T10:45:29+00:00",
+  "measured_at": "2026-11-22T12:03:21+00:00",
   "environment": {
     "python": "3.13.0",
     "os": "Windows-11-10.0.26300-SP0",
@@ -12,19 +12,19 @@
   },
   "issue_latency": {
     "n": 20,
-    "mean_ms": 125.14,
-    "median_ms": 110.42,
-    "p95_ms": 167.21,
-    "min_ms": 99.73,
-    "max_ms": 276.3
+    "mean_ms": 129.88,
+    "median_ms": 118.99,
+    "p95_ms": 156.63,
+    "min_ms": 99.7,
+    "max_ms": 300.09
   },
   "verify_latency_api": {
     "n": 100,
-    "mean_ms": 57.66,
-    "median_ms": 53.59,
-    "p95_ms": 79.86,
-    "min_ms": 39.68,
-    "max_ms": 229.2
+    "mean_ms": 54.74,
+    "median_ms": 49.61,
+    "p95_ms": 79.6,
+    "min_ms": 39.13,
+    "max_ms": 106.66
   },
   "verify_genuine": {
     "valid": 100,
@@ -43,9 +43,9 @@
       "n": 100,
       "mean_ms": 0.04,
       "median_ms": 0.04,
-      "p95_ms": 0.04,
-      "min_ms": 0.02,
-      "max_ms": 0.3
+      "p95_ms": 0.05,
+      "min_ms": 0.03,
+      "max_ms": 0.15
     },
     "forged_rejected": 140,
     "forged_total": 140,
@@ -53,7 +53,7 @@
     "blockchain_result_for_same_forgery": "COMMITMENT_MISMATCH"
   },
   "gas": {
-    "measuredAt": "2026-11-21T10:44:39.261Z",
+    "measuredAt": "2026-11-22T11:39:21.771Z",
     "environment": {
       "network": "hardhat in-process",
       "hardhat": "2.29.1",
