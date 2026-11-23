@@ -20,7 +20,7 @@ export default function LoginPage() {
     setBusy(true);
     setError("");
     try {
-      await login(username, password);
+  await login(username.trim(), password);
       navigate(destination, { replace: true });
     } catch (err) {
       setError(errorMessage(err));
@@ -35,17 +35,28 @@ export default function LoginPage() {
       <form className="card form" onSubmit={handleSubmit}>
         <label>
           Username
-          <input value={username} onChange={(e) => setUsername(e.target.value)} autoComplete="username" required />
+    <input
+      value={username}
+      onChange={(e) => setUsername(e.target.value)}
+      autoComplete="username"
+      autoCapitalize="none"
+       autoCorrect="off"
+       spellCheck={false}
+       required
+     />
         </label>
         <label>
           Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            autoComplete="current-password"
-            required
-          />
+         <input
+      type="password"
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      autoComplete="current-password"
+      autoCapitalize="none"
+      autoCorrect="off"
+      spellCheck={false}
+      required
+    />
         </label>
         {error && <div className="alert alert-bad" role="alert">{error}</div>}
         <button type="submit" className="btn btn-primary" disabled={busy}>
