@@ -42,12 +42,36 @@ export function clearSession() {
   remove(USER_KEY);
 }
 
+const requireHostedApi = import.meta.env.VITE_REQUIRE_HOSTED_API === "true";
+
+function resolveApiBase(configuredBase) {
+  const value = configuredBase?.trim();
+  if (!requireHostedApi) return value || "/api";
+  if (!value) return undefined;
+
+  try {
+    const url = new URL(value);
+    const hostname = url.hostname.replace(/\.$/, "");
+    const loopback = /^(?:localhost|\[::1\]|0\.0\.0\.0)$|^127\.|\.localhost$/.test(hostname);
+    const path = url.pathname.replace(/\/+$/, "");
+    if (url.protocol !== "https:" || loopback || url.username || url.password ||
+        url.search || url.hash || (path && path !== "/api")) return undefined;
+    return `${url.origin}/api`;
+  } catch {
+    return undefined;
+  }
+}
+
+const apiBase = resolveApiBase(import.meta.env.VITE_API_BASE_URL);
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || "/api",
+  baseURL: apiBase,
   timeout: 30000,
 });
 
 api.interceptors.request.use((config) => {
+  if (!apiBase) {
+    throw new Error("The backend API is not configured. Set VITE_API_BASE_URL to the public HTTPS FastAPI URL and redeploy.");
+  }
   const token = getToken();
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
@@ -76,6 +100,7 @@ export function errorMessage(err) {
   }
   if (typeof data?.detail === "string") return data.detail;
   if (err?.code === "ERR_NETWORK") {
+    if (requireHostedApi) return "Cannot reach the hosted backend. Check that it is online and allows requests from this site.";
     return "Cannot reach the backend. Is it running on port 8000?";
   }
   if (err?.code === "ECONNABORTED") return "The request timed out. Please try again.";
