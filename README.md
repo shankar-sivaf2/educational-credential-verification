@@ -128,6 +128,18 @@ Change the default password in `backend\.env` before using the application beyon
 
 The local blockchain resets whenever its node is restarted. After restarting it, deploy the smart contract again and restart the backend. Certificates issued before the reset may appear as unknown.
 
+## Netlify deployment
+
+Netlify installs the locked dependencies (including Vite) and builds from `frontend/`, then publishes `frontend/dist/`.
+The root Python requirements and the Hardhat project are not part of this build.
+This deploy hosts only the frontend. To enable System Status and Admin Login:
+
+1. Run the existing FastAPI app (`uvicorn main:app` from `backend/`) on a publicly reachable HTTPS endpoint. Configure its database and blockchain RPC and contract as required by the existing backend; keep all credentials on the backend.
+2. Set the backend's `FRONTEND_ORIGIN` to the exact frontend origin for the deployment you are connecting so the browser can make cross-origin requests. The backend currently accepts one configured frontend origin, so a preview on a different origin is not automatically allowed.
+3. Set `VITE_API_BASE_URL` in the Netlify build environment for each applicable deploy context, using the public backend URL, for example `https://backend.example.com/api`. Redeploy after changing it. Do not use a localhost or relative URL for a deployed frontend.
+
+System Status calls `GET /api/health`, and Admin Login calls `POST /api/auth/login` on that backend. The Netlify page rewrites do not handle `/api` requests. Local Vite development and preview still proxy `/api` to `127.0.0.1:8000` when the variable is unset.
+
 ## Demo
 ```powershell
 python scripts\seed-demo-data.py --count 5

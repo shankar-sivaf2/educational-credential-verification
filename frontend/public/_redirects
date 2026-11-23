@@ -1,0 +1,7 @@
+/login       /index.html  200
+/health      /index.html  200
+/verify      /index.html  200
+/student     /index.html  200
+/admin       /index.html  200
+/admin/issue /index.html  200
+/admin/audit /index.html  200
