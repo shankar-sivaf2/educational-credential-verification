@@ -128,6 +128,13 @@ Change the default password in `backend\.env` before using the application beyon
 
 The local blockchain resets whenever its node is restarted. After restarting it, deploy the smart contract again and restart the backend. Certificates issued before the reset may appear as unknown.
 
+## Netlify deployment
+
+Netlify installs the locked dependencies (including Vite) and builds from `frontend/`, then publishes `frontend/dist/`.
+The root Python requirements and the Hardhat project are not part of this build.
+This deploy hosts only the frontend; a hosted FastAPI backend is still needed for API calls.
+The frontend reads its deployed API base URL from `VITE_API_BASE_URL` at build time.
+
 ## Demo
 ```powershell
 python scripts\seed-demo-data.py --count 5
